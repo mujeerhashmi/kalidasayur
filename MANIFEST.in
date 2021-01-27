@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include kalidasayur *.css
+recursive-include kalidasayur *.csv
+recursive-include kalidasayur *.html
+recursive-include kalidasayur *.ico
+recursive-include kalidasayur *.js
+recursive-include kalidasayur *.json
+recursive-include kalidasayur *.md
+recursive-include kalidasayur *.png
+recursive-include kalidasayur *.py
+recursive-include kalidasayur *.svg
+recursive-include kalidasayur *.txt
+recursive-exclude kalidasayur *.pyc
