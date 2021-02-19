@@ -1,0 +1,152 @@
+{% extends "templates/web.html" %}
+{% set full_width=1 %}
+{% set title = heading or "SKAMC Badami" %}
+
+{% block page_content %}
+<div id="preloader">
+	<div class="pulse"></div>
+</div><!-- Pulse Preloader -->
+
+<div class="sub_header bg_2">
+	<div id="intro_txt">
+		<h1>SKAMC <strong>Excellence</strong> in teaching</h1>
+		<p>About Us</p>
+	</div>
+</div>
+<!--End sub_header -->
+
+<div class="container_gray_bg">
+	<div class="container margin_60">
+		<div class="main_title">
+			<h2>Why choose SKAMC, Badami ...</h2>
+			<p>We beleive in overall development of the students.</p>
+		</div>
+
+		<div class="row">
+			<div class="col-md-4 col-sm-4">
+				<a class="box_feat" href="#">
+					<i class="pe-7s-diamond"></i>
+					<h3>Qualified teachers</h3>
+					<p></p>
+				</a>
+			</div>
+			<div class="col-md-4 col-sm-4">
+				<a class="box_feat" href="#">
+					<i class="pe-7s-display2"></i>
+					<h3>Equiped class rooms</h3>
+					<p></p>
+				</a>
+			</div>
+			<div class="col-md-4 col-sm-4">
+				<a class="box_feat" href="#">
+					<i class="pe-7s-science"></i>
+					<h3>Advanced teaching</h3>
+					<p></p>
+				</a>
+			</div>
+		</div>
+		<!--End row-->
+		<div class="row">
+			<div class="col-md-4 col-sm-4">
+				<a class="box_feat" href="#">
+					<i class="pe-7s-rocket"></i>
+					<h3>Adavanced study plans</h3>
+					<p></p>
+				</a>
+			</div>
+			<div class="col-md-4 col-sm-4">
+				<a class="box_feat" href="#">
+					<i class="pe-7s-target"></i>
+					<h3>Focus on target</h3>
+					<p></p>
+				</a>
+			</div>
+			<div class="col-md-4 col-sm-4">
+				<a class="box_feat" href="#">
+					<i class="pe-7s-graph1"></i>
+					<h3>Focus on success</h3>
+					<p></p>
+				</a>
+			</div>
+		</div>
+		<!--End row-->
+		<br>
+		<div class="text-center"><a href="tour.html" class=" button_outline large">Take a tour of SKAMC</a></div>
+
+	</div>
+	<!--End container -->
+</div>
+<!--End bg_gray_container -->
+
+<div class="container margin_60">
+	<div class="main_title">
+		<h2>Shri Kalidas Education Society (R). Badami</h2>
+		<p>
+			Prepare to lead a quality life.
+		</p>
+	</div>
+	<div class="row">
+		<div class="col-md-8 col-sm-8">
+			<h3>Founded in 1977</h3>
+			<p>{{ company_introduction }}</p>
+		</div>	
+		<div class="col-md-4 col-sm-4">
+			<div class="box_style_4">
+				<h4>Core Values</h4>				
+				<ul class="list_order">
+					<li><span>1</span>Respect people.</li>
+					<li><span>2</span>Take care of students.</li>
+					<li><span>3</span>Take care of employees.</li>
+					<li><span>4</span>Take care to develop new and interesting ideas - Creativity.</li>
+					<li><span>5</span>Face difficulty without fear - Courage.</li>
+					<li><span>6</span>Always do the right thing - Integrity.</li>
+
+				</ul>
+			</div>
+		</div>		
+	</div>
+	<!--End row -->
+	<hr class="more_margin">
+
+	<div class="row" id="vision">
+		<div class="col-md-10 col-sm-10">			
+			<div class="row">
+				<div class="col-md-6">
+					<h3>Vision</h3>
+					<ul class="list_4">
+						<li>To prepare the students and employees to lead a quality
+							life and serve the world with integrity</li>
+					</ul>
+				</div>
+				<div class="col-md-6">
+					<h3>Mission</h3>
+					<ul class="list_4">
+						<li>Shri Kalidas Education Society is dedicated to prepare the students and employees
+							to lead a life by courage with strong leadership, being creative and to serve the world with
+							integrity.
+							To bring the positive transformation in an interconnected and rapidly changing world this
+							will be based on core values.
+						</li>
+					</ul>
+				</div>
+			</div><!-- end row -->
+			{% if team_members %}
+			<h3>{{ team_members_heading or "Management" }}</h3>
+			<p></p>
+			<ul class="list_staff">
+				{% for member in team_members %}
+				<li>
+					<figure><img src="{{member.image_link}}" alt="" class="rounded"></figure>
+					<h5>{{ member.full_name }}</h5>
+					<p>{{ member.bio }}</p>
+				</li>
+				{% endfor %}
+			</ul>
+			{% endif %}
+		</div>		
+	</div>
+	
+</div>
+<!--End container -->
+
+{% endblock %}

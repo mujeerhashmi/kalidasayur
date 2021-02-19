@@ -1,0 +1,331 @@
+{% extends "templates/web.html" %}
+{% set full_width=1 %}
+{% set title = heading or "SKAMC Badami" %}
+
+{%- block style %}
+<!-- SPECIFIC CSS -->
+<link href="/assets/kalidasayur/layerslider/css/layerslider.css" rel="stylesheet">
+<link href="/assets/kalidasayur/css/tabs.css" rel="stylesheet">
+{% endblock %}
+
+{%- block script %}
+<!-- LayerSlider script files -->
+<script src="/assets/kalidasayur/layerslider/js/greensock.js"></script>
+<script src="/assets/kalidasayur/layerslider/js/layerslider.transitions.js"></script>
+<script src="/assets/kalidasayur/layerslider/js/layerslider.kreaturamedia.jquery.js"></script>
+<script type="text/javascript">
+    // Running the code when the document is ready
+    $(document).ready(function () {
+        'use strict';
+        // Calling LayerSlider on the target element with adding custom slider options
+        $('#layerslider').layerSlider({
+            autoStart: true,
+            responsive: true,
+            responsiveUnder: 1280,
+            layersContainer: 1170,
+            skinsPath: '/assets/kalidasayur/layerslider/skins/'
+            // Please make sure that you didn't forget to add a comma to the line endings
+            // except the last line!
+        });
+    });
+</script>
+<script src="/assets/kalidasayur/js/tabs.js"></script>
+<script>
+    new CBPFWTabs(document.getElementById('tabs'));
+</script>
+{% endblock %}
+
+{% block page_content %}
+<div id="preloader">
+    <div class="pulse"></div>
+</div><!-- Pulse Preloader -->
+
+{% if carousel %} {% set slides = carousel['slideshow_items'] %}
+<div id="full-slider-wrapper">
+    <div id="layerslider" style="width:100%;height:650px;">
+        {% for slide in slides %}
+        <div class="ls-slide" data-ls="slidedelay: 3000; transition2d:5;">
+            <img src="{{ slide.image }}" class="ls-bg" alt="Slide background" style="opacity:0.9">
+            {% if slide.heading %}
+            <h3 class="ls-l slide_typo" style="top: 45%; left: 50%;"
+                data-ls="offsetxin:0;durationin:1000;delayin:1000;easingin:easeOutElastic;rotatexin:90;transformoriginin:50% bottom 0;offsetxout:0;rotatexout:90;transformoriginout:50% bottom 0;">
+                {{ slide.heading }}</h3>
+            {% endif %}
+            {% if slide.description %}
+            <p class="ls-l slide_typo_2" style="top:52%; left:50%;"
+                data-ls="durationin:1000;delayin:1000;easingin:easeOutElastic;">{{ slide.description }}</p>
+            {% endif %}
+            <p class="ls-l" style="top:62%; left:50%;" data-ls="durationin:1000;delayin:1300;easingin:easeOutElastic;">
+                <a href="tour.html" class="button_intro">Take a tour</a> <a href="about.html"
+                    class="button_intro outline">About us</a>
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+</div><!-- End layerslider -->
+
+<div class="container_gray_bg" id="home_feat_1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-4">
+                <div class="home_feat_1_box">
+                    <a href="contact">
+                        <img src="/assets/kalidasayur/img/home_feat_1_1.jpg" class="img-fluid" alt="">
+                        <div class="short_info">
+                            <h3>Plan a visit</h3><i class="arrow_carrot-right_alt2"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <div class="home_feat_1_box">
+                    <a href="blog/courses">
+                        <img src="/assets/kalidasayur/img/home_feat_1_2.jpg" class="img-fluid" alt="">
+                        <div class="short_info">
+                            <h3>Study Programs</h3><i class="arrow_carrot-right_alt2"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <div class="home_feat_1_box">
+                    <a href="admissions">
+                        <img src="/assets/kalidasayur/img/home_feat_1_3.jpg" class="img-fluid" alt="">
+                        <div class="short_info">
+                            <h3>Admissions</h3><i class="arrow_carrot-right_alt2"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div><!-- End row -->
+    </div><!-- End container -->
+</div><!-- End container_gray_bg -->
+
+<div class="container margin_60">
+    <div class="main_title">
+        <h2>Latest from SKAMC, Badami ....</h2>
+        <p>We keep the community updated.</p>
+    </div>
+    <div id="tabs" class="tabs">
+        <nav>
+            <ul>
+                <li><a href="#section-1" class="icon-news"><span>News</span></a></li>
+                <li><a href="#section-2" class="icon-events"><span>Events</span></a></li>
+                <li><a href="#section-3" class="icon-courses"><span>Courses</span></a></li>
+            </ul>
+        </nav>
+        <div class="content">
+            <section id="section-1">
+                <div class="row list_news_tabs">
+                    {% if blogs_news %} {% for blog in blogs_news %}
+                    {%- set post = blog -%}
+                    <div class="col-md-4 col-sm-4">
+                        {% if post.meta_image %}
+                        <p><a href="{{ post.route }}"><img src="{{ post.meta_image }}"
+                                    alt="{{post.title}} - Cover Image" class="img-fluid"></a></p>
+                        {% else %}
+                        <p><a href="{{ post.route }}"><span>{{ post.title }}</span></a></p>
+                        {% endif %}
+                        <span class="date_published">{{ frappe.format_date(post.published_on) }}</span>
+                        <h3><a href="{{ post.route }}">{{ post.title }} </a></h3>
+                        <p>{{ post.blog_intro }} </p>
+                        <a href="{{ post.route }}" class="button small">Read more</a>
+                    </div>
+                    {% endfor %} {% endif %}
+                </div>
+                <!--End row -->
+            </section>
+            <section id="section-2">
+                <div class="row list_news_tabs">
+                    {% if blogs_events %} {% for blog in blogs_events %}
+                    {%- set post = blog -%}
+                    <div class="col-md-4 col-sm-4">
+                        {% if post.meta_image %}
+                        <p><a href="{{ post.route }}"><img src="{{ post.meta_image }}"
+                                    alt="{{post.title}} - Cover Image" class="img-fluid"></a></p>
+                        {% else %}
+                        <p><a href="{{ post.route }}"><span>{{ post.title }}</span></a></p>
+                        {% endif %}
+                        <span class="date_published">{{ frappe.format_date(post.published_on) }}</span>
+                        <h3><a href="{{ post.route }}">{{ post.title }} </a></h3>
+                        <p>{{ post.blog_intro }} </p>
+                        <a href="{{ post.route }}" class="button small">Read more</a>
+                    </div>
+                    {% endfor %} {% endif %}
+                </div>
+                <!--End row -->
+            </section>
+            <section id="section-3">
+                <div class="row list_news_tabs">
+
+                    {% if blogs_courses %} {% for blog in blogs_courses %}
+                    {%- set post = blog -%}
+                    <div class="col-md-4 col-sm-4">
+                        {% if post.meta_image %}
+                        <p><a href="{{ post.route }}"><img src="{{ post.meta_image }}"
+                                    alt="{{post.title}} - Cover Image" class="img-fluid"></a></p>
+                        {% else %}
+                        <p><a href="{{ post.route }}"><span>{{ post.title }}</span></a></p>
+                        {% endif %}
+                        <span class="date_published">{{ frappe.format_date(post.published_on) }}</span>
+                        <h3><a href="{{ post.route }}">{{ post.title }} </a></h3>
+                        <p>{{ post.blog_intro }} </p>
+                        <a href="{{ post.route }}" class="button small">Read more</a>
+                    </div>
+                    {% endfor %} {% endif %}
+
+                </div>
+            </section>
+        </div><!-- /content -->
+    </div><!-- End tabs -->
+</div><!-- End container -->
+
+<div class="container_gray_bg">
+    <div class="container margin_60">
+        <div class="main_title">
+            <h2>SKAMC, Badami core feautures</h2>
+            <p>Ayurveda is the indegineous science of India.</p>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <div class="box_feat_home">
+                    <i class=" iconcustom-certificate"></i>
+                    <h3>Quality Education</h3>
+                    <p>Our focus is on the social, emotional, mental, physical, and cognitive development of each student regardless of 
+                        gender, race, ethnicity, socioeconomic status, or geographic location.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <div class="box_feat_home">
+                    <i class=" iconcustom-innovation"></i>
+                    <h3>Learning Best Practice</h3>
+                    <p>We use best possible learning and teaching practices to promote active learning rather than just
+                        passive learning.</p>
+                </div>
+            </div>
+        </div><!-- End row -->
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <div class="box_feat_home">
+                    <i class=" iconcustom-education_online"></i>
+                    <h3>Online Resources</h3>
+                    <p>The student community is kept updated with the latest research and publications in the field of Ayurveda.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <div class="box_feat_home">
+                    <i class=" iconcustom-know_how"></i>
+                    <h3>Qualified Staff</h3>
+                    <p>We have one of the best team of well qualified and experienced teaching staff who have served in the field of
+                        Ayurveda.</p>
+                </div>
+            </div>
+        </div><!-- End row -->
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <div class="box_feat_home">
+                    <i class=" iconcustom-science"></i>
+                    <h3>Advanced Practice</h3>
+                    <p>We have functional hospital for the students to get trained in applying the healing techniques of Ayurveda.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <div class="box_feat_home">
+                    <i class=" iconcustom-test"></i>
+                    <h3>Research</h3>
+                    <p>Our Staff wokring in the field of research in various departments of Ayurveda keep students abreast with latest
+                        techniques of practice.</p>
+                </div>
+            </div>
+        </div><!-- End row -->
+    </div>
+</div>
+
+<div class="container margin_60">
+    <div class="main_title">
+        <h2>SKAMC's focus is on these ....</h2>
+        <p>Overall development of students is paramount to us.</p>
+    </div>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div id="graph">
+                <img src="/assets/kalidasayur/img/graphic.jpg" class="wow zoomIn" data-wow-delay="0.1s" alt="">
+                <div class="features step_1 wow flipInX" data-wow-delay="0.5s">
+                    <h4><strong>01.</strong> Students growth</h4>
+                    <p>We make sure the students academic performance improves year on year by conducting regular
+                        assessments and evaluations.</p>
+                </div>
+                <div class="features step_2 wow flipInX" data-wow-delay="1s">
+                    <h4><strong>02.</strong> Best learning practice</h4>
+                    <p>We use best possible learning and teaching practices to promote active learning rather than just
+                        passive learning.</p>
+                </div>
+                <div class="features step_3 wow flipInX" data-wow-delay="1.5s">
+                    <h4><strong>03.</strong> Focus on targets</h4>
+                    <p>Our experienced and well qualified faculty helps students keep focused on the principles of
+                        Ayurveda to Heal.</p>
+                </div>
+                <div class="features step_4 wow flipInX" data-wow-delay="2s">
+                    <h4><strong>04.</strong> Interdisciplanary model</h4>
+                    <p>Interdisciplinary instruction applies the knowledge from more than one academic discipline to examine a 
+                        theme, issue, question or topic.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div><!-- End row -->
+    <div class="text-center"><a href="tour" class=" button_outline large">Take a tour of SKAMC</a></div>
+</div><!-- End container -->
+
+<div class="bg_content testimonials">
+    <div class="row">
+        <div class="offset-md-1 col-md-10">
+            <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+                <!-- Bottom Carousel Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#quote-carousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#quote-carousel" data-slide-to="1"></li>
+                    <li data-target="#quote-carousel" data-slide-to="2"></li>
+                </ol><!-- Carousel Slides / Quotes -->
+                <div class="carousel-inner">
+                    <!-- Quote 1 -->
+                    <div class="carousel-item active">
+                        <blockquote>
+                            <p>
+                                SKAMC, Badami provides a lot of opportuities to learn and practice ayurvedic medicine.
+                            </p>
+                        </blockquote>
+                        <small><img class="img-circle" src="/assets/kalidasayur/img/testimonial_1.jpg" alt="">Vinita
+                            Mathpati</small>
+                    </div>
+                    <!-- Quote 2 -->
+                    <div class="carousel-item">
+                        <blockquote>
+                            <p>
+                                This college is great place to learn.I say with great pride that i have completed my
+                                BAMS from here.
+                            </p>
+                        </blockquote>
+                        <small><img class="img-circle" src="/assets/kalidasayur/img/testimonial_2.jpg" alt="">Shruti
+                            Hugar</small>
+                    </div>
+                    <!-- Quote 3 -->
+                    <div class="carousel-item">
+                        <blockquote>
+                            <p>
+                                The teachers and mentors are really helpful and helped me to improve my academic and
+                                interpersonal skills.
+                            </p>
+                        </blockquote>
+                        <small><img class="img-circle" src="/assets/kalidasayur/img/testimonial_1.jpg" alt="">Sudha
+                            Mantur</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- End row -->
+</div><!-- End bg_content -->
+
+{% endif %}
+
+{% endblock %}

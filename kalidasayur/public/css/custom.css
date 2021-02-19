@@ -1,0 +1,51 @@
+body {
+  font-size: 16px;
+}
+
+#quote-carousel .carousel-indicators {
+  top: auto;
+  bottom: -50px;
+}
+#quote-carousel .carousel-indicators li {
+  width: 20px;
+  height: 2px;
+  border-radius: 100%;
+  background: #fff;
+  opacity: 0.5;
+}
+#quote-carousel .carousel-indicators .active {
+  background: #fff;
+  opacity: 1;
+}
+#quote-carousel .carousel-item small {
+  color: #fff;
+  display: block;
+  margin-top: 15px;
+  font-size: 18px;
+  font-style: italic;
+  font-family: "Georgia", cursive;
+}
+#quote-carousel .carousel-item small img {
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+}
+.carousel-item small:before {
+  content: normal;
+}
+.carousel-item blockquote {
+  border-left: none;
+  margin: 0;
+  text-align: center;
+  font-family: "Georgia", cursive;
+  font-style: italic;
+  padding-top: 15px;
+  font-size: 26px;
+  line-height: 28px;
+  background: url(../img/blockquote.svg) no-repeat left top;
+  background-size: 120px auto;
+  overflow: visible;
+}
+.carousel-item blockquote img {
+  margin-bottom: 20px;
+}

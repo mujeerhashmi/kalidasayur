@@ -1,0 +1,18 @@
+body {
+  background-color: #4e6361;
+}
+.tour-section:first-of-type .full-container, .half-container:nth-of-type(1)  {
+  background-color: #4e6361;
+}
+.tour-section h1 span{
+   color: #FFC;
+}
+.vertical-nav a {
+  background: transparent url(../img/tour/icon-arrow-green.svg) no-repeat center center;
+}
+.top-nav a{
+  color: #c5de9e;
+}
+.tour-section:nth-of-type(7) .half-container:first-of-type {
+  background-image: url("../img/tour/img-5-green.jpg");
+}

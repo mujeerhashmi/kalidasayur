@@ -1,0 +1,153 @@
+/*-------- General links color --------*/
+a, a.link_normal {color:#c04348;}
+a:hover,a:focus, a.link_normal:hover {color: #111;}
+
+/*-------- Buttons --------*/
+a.button, .button{
+	background-color:#333;
+  }
+a.button:hover,.button:hover{
+	background-color:#c04348;
+}
+a.button_outline, .button_outline{
+	border:2px solid #333;
+	color:#333;
+}
+a.button_outline:hover, .button_outline:hover{
+	border:2px solid #c04348;
+	color:#c04348;
+}
+a.button_download{
+	border:2px solid #c04348;
+}
+a.button_download:hover{
+	 background-color:#c04348;
+	 color:#fff;
+}
+a.button_intro, .button_intro  {
+	background: #111;
+}
+a.button_intro:hover, .button_intro:hover {
+	background: #fff;
+	color:#333 !important;
+}
+a.button_intro.outilne, .button_intro.outline  {
+	border: 2px solid #fff;
+	color:#fff;
+	background: none;
+}
+a.button_intro:hover, .button_intro:hover {
+	background: #fff;
+	color:#00aeef;
+}
+a.banner_bt {
+	color:#c04348;
+}
+/*-------- Structure --------*/
+header.sticky, header.sticky#contacts, header#contacts, footer{ 
+	background-color:#663636; 
+}
+#copy{ 
+	background-color:#5d3131; 
+}
+/*============================================================================================*/
+/* 2.  CONTENT  */
+/*============================================================================================*/
+.box_feat_home i, a.box_feat i, .indent_title_in i, ul.list_4 li:before{
+	color:#c04348;
+}
+.container_gray_bg, #position {
+	background-color:#f0f0f0;
+}
+.sub_header.bg_1 {
+  background-image: url(../img/header_bg_1_red.jpg);
+}
+.sub_header.bg_2 {
+  background-image: url(../img/header_bg_2_red.jpg);
+}
+.sub_header.bg_3 {
+  background-image: url(../img/header_bg_3_red.jpg);
+}
+.sub_header.bg_4 {
+  background-image: url(../img/header_bg_4_red.jpg);
+}
+.sub_header_contact_home{
+   background-image: url(../img/header_bg_1_red.jpg);
+}
+.bg_content{
+   background: url(../img/bg_content_red.jpg) no-repeat center center; 
+   background-size:cover;
+}
+/*-------- Tabs home --------*/
+.tabs nav li.tab-current {
+	border: 1px solid #ddd !important;
+	border-bottom: none !important;
+	box-shadow: inset 0 2px #ddd !important;
+}
+.tabs nav li.tab-current:before,
+.tabs nav li.tab-current:after {
+	background: #ddd !important;
+}
+.tabs nav a {
+	color: #333 !important;
+}
+.tabs nav a:hover {
+	color: #111 !important;
+}
+.modal-popup {
+	background: url('../img/popup_red.jpg');
+}
+.btn.btn-submit {
+	background: #fff;
+	color:#333;
+}
+.btn.btn-submit:hover {
+	color: #c04348;
+}
+/*-------- Agenda calendar --------*/
+.external-event, .fc-state-default  {background: #444 !important;}
+.fc-state-hover,
+.fc-state-down,
+.fc-state-active,
+.fc-state-hover,
+.fc-state-disabled {background:#111 !important;}
+
+/*-------- Gallery --------*/
+.grid figcaption {
+    background-color: rgba(106, 71, 84, 0.80);
+}
+.grid figcaption a:hover, .grid figcaption a:focus {
+    color: #FFC;
+}
+/*-------- blog --------*/
+.post_info {
+	background-color:#333 !important;
+}
+/*-------- Pagination ------*/
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  background-color: #c04348;
+  border-color: #c04348;
+}
+/*-------- Menu --------*/
+@media only screen and (min-width: 992px) {
+/* Submenu */
+.main-menu ul ul,
+.main-menu ul .menu-wrapper {border-top: 2px solid #fff;}
+/* Arrows top */
+.main-menu ul ul:before{border-bottom-color: #fff !important;}
+
+.main-menu ul ul li:hover > a {color:#c04348 !important;}
+}
+@media only screen and (max-width: 991px) {
+.main-menu ul li a:hover,
+a.show-submenu:hover,
+a.show-submenu:focus,
+a.show-submenu-mega:hover,
+a.show-submenu-mega:focus{color:#c04348 !important;}	
+}
+

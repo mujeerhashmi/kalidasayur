@@ -1,0 +1,5 @@
+{
+	"css/kalidas_theme.css": [
+        "public/css/kalidas_theme.scss"
+    ]
+}

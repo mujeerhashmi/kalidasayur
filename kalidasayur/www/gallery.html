@@ -1,0 +1,46 @@
+{% extends "templates/web.html" %}
+{% set full_width=1 %}
+{% set title = heading or "SKAMC Badami" %}
+
+{% block page_content %}
+<div id="preloader">
+    <div class="pulse"></div>
+</div><!-- Pulse Preloader -->
+
+<div class="sub_header bg_4">
+    <div id="intro_txt">
+        <h1>SKAMC, Badami <strong>Gallery</strong></h1>
+        <p></p>
+    </div>
+</div>
+<!--End sub_header -->
+
+<div id="position">
+    <div class="container">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li>Gallery</li>            
+        </ul>
+    </div>
+</div><!-- Position -->
+
+<div class="container margin_60">
+    <section class="grid">        
+        <div class="row">
+            {% if albums %} {% for gallery, cover_photo in albums.items() %}
+            <div class="col-md-3 col-sm-3">
+                <a href="/gallery_detail?name={{ gallery }}">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" src="{{ cover_photo }}" alt="">
+                        <div class="card-body">
+                            <h3 class="card-title">{{ gallery }}</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %} {% endif %}
+        </div>
+    </section>
+</div>
+
+{% endblock %}

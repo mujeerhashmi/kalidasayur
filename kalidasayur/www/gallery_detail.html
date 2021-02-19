@@ -1,0 +1,39 @@
+{% extends "templates/web.html" %}
+{% set full_width=1 %}
+{% set title = heading or "SKAMC Badami" %}
+
+{% block page_content %}
+<div id="preloader">
+    <div class="pulse"></div>
+</div><!-- Pulse Preloader -->
+
+<div id="position">
+    <div class="container">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="gallery">Gallery</a></li>
+            <li>{{ gallery.name }}</li>
+        </ul>
+    </div>
+</div><!-- Position -->
+
+<div class="container margin_60">
+    {% if gallery %} {% set slides = gallery['slideshow_items'] %}
+    <section class="grid">
+        <div class="main_title">
+            <h2>{{ gallery.name }}</h2>
+            <p></p>
+        </div>
+        <div class="row magnific-gallery">            
+            {% for slide in slides %}
+            <div class="col-md-4 col-sm-4">
+                <a href="{{ slide.image }}" title="{% if slide.heading %}{{ slide.heading }}{% endif %}">
+                    <img src="{{ slide.image }}" alt="" class="img-fluid img-thumbnail">
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+</div>
+{% endblock%}

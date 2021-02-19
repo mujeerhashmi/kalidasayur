@@ -1,0 +1,90 @@
+{% extends "templates/web.html" %}
+{% set full_width=0 %}
+
+{% set title = heading or "Contact Us" %}
+{% block header %}<h1>{{ heading or "Contact Us" }}</h1>{% endblock %}
+
+{% block page_content %}
+<style>
+    .address {
+        line-height: 1.7em;
+    }
+</style>
+
+<div id="preloader">
+	<div class="pulse"></div>
+</div><!-- Pulse Preloader -->
+
+<div class="contact-content">
+    {% if address_title %}
+    <h4 style="margin-top: 0px;"><i class="fa fa-map-marker"></i> {{ address_title }}</h4>
+    <div class="address row" itemscope itemtype="http://schema.org/PostalAddress" style="padding-bottom: 20px;">
+        <div class="col-md-6">
+            {% if address_line1 %}
+            <span itemprop="streetAddress">{{ address_line1 }}</span>
+            {% endif %}
+            {% if address_line2 %}
+            <span itemprop="streetAddress">, {{ address_line2 }}</span><br>
+            {% endif %}
+            {% if city %}
+            <span itemprop="addressLocality">{{ city }}</span>
+            {% endif %}
+            {% if pincode %}
+            <span itemprop="postalCode"> - {{ pincode }}</span>
+            {% endif %}
+            {% if state %}
+            <span itemprop="addressRegion">, {{ state }}</span>
+            {% endif %}
+            {% if country %}
+            <span itemprop="addressCountry">, {{ country }}</span><br>
+            {% endif %}
+        </div>
+        <div class="col-md-6">
+            {% if phone %}
+            <i class='fa fa-phone'></i> <span itemprop="telephone"> {{ phone }}</span><br>
+            {% endif %}
+            {% if email_id %}
+            <i class='fa fa-envelope'></i> <span itemprop="email"> {{ email_id }}</span><br>
+            {% endif %}
+            {% if skype %}
+            <i class='fa fa-skype'></i> <span itemprop="email"> {{ skype }}</span><br><br>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="row">
+        <div class="col-md-6">
+            <p id="contact-alert" class="alert alert-warning" style="display: none;">&nbsp;</p>
+            <div class="form-group">
+                <select name="subject" class="form-control">
+                    {% if query_options -%}
+                    {% for option in query_options.split("\n") -%}
+                    <option value="{{ option }}">{{ option }}</option>
+                    {%- endfor %}
+                    {% else %}
+                    <option value="General">General</option>
+                    {% endif %}
+                </select>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="email" type="text" placeholder="{{ _('Your email address') }}" />
+            </div>
+            <div class="form-group">
+                <textarea rows="10" name="message" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-send">{{ _("Send") }}</button>
+            </div>
+        </div>
+
+        <div class="contact_map col-md-6 address">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15348.19420065033!2d75.6882799!3d15.9065272!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x39701c6d0e5bb0f5!2sShree%20Kalidas%20Ayurvedic%20Medical%20College!5e0!3m2!1sen!2sin!4v1613215730077!5m2!1sen!2sin" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>            
+        </div>
+    </div>
+</div>
+
+<script>
+    {% include "templates/includes/contact.js" %}
+</script>
+{% endblock %}

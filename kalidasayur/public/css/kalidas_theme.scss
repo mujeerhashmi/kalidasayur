@@ -1,0 +1,59 @@
+$primary: #14b1ab;
+
+@import 'frappe/public/scss/website';
+
+.navbar {
+	background-color: $primary;
+	height: 70px;
+	width: 100%;
+	z-index: 999999;	
+}
+
+.navbar .container {
+    z-index: 1;
+}
+
+.navbar-brand img {
+	max-height: 40px;
+}
+
+.navbar.scrolled {		
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+.navbar-light .navbar-nav .nav-link,
+.navbar .navbar-brand {
+    display: block;
+	position: relative;
+	height: 100%;
+	font-size: 13px;
+	font-weight: 600;
+	color: #FFFFFF;
+	z-index: 1;
+	text-transform: uppercase;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+
+	&:hover,
+	&:focus, &.active {
+		color: rgba(255, 255, 255, 0.75);
+		// color: rgba(40, 56, 66, 0.75);
+	}
+}
+
+.web-footer {
+	background-color: $primary;
+}
+
+.page-content-wrapper {
+    margin: 0;
+}
+
+.page-header {
+	color: $primary;
+}

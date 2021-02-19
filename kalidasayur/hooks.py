@@ -19,8 +19,32 @@ app_license = "MIT"
 # app_include_js = "/assets/kalidasayur/js/kalidasayur.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/kalidasayur/css/kalidasayur.css"
-# web_include_js = "/assets/kalidasayur/js/kalidasayur.js"
+web_include_css = [
+	"assets/css/kalidas_theme.css",
+	# BASE CSS
+	"/assets/kalidasayur/css/main_font/main_font.css",
+	"/assets/kalidasayur/css/animate.min.css",	
+	"/assets/kalidasayur/css/style.css",
+	"/assets/kalidasayur/css/responsive.css",
+	"/assets/kalidasayur/css/elegant_font/elegant_font.min.css",
+	"/assets/kalidasayur/css/icon_font/pe-icon-7-stroke.min.css",
+	"/assets/kalidasayur/css/fontello/css/fontello.min.css",
+	"/assets/kalidasayur/css/edu_fonts/edu_fonts.min.css",
+	"/assets/kalidasayur/css/magnific-popup.css",
+
+	# YOUR CUSTOM CSS
+	"/assets/kalidasayur/css/custom.css"
+]
+
+web_include_js = [
+	# Common scripts
+	"/assets/kalidasayur/js/wow.min.js",
+	"/assets/kalidasayur/js/retina-replace.min.js",
+	"/assets/kalidasayur/js/jquery.magnific-popup.min.js",
+	"/assets/kalidasayur/js/custom.js",
+	"/assets/kalidasayur/js/functions.js",
+	"/assets/kalidasayur/js/validate.js"
+]
 
 # include custom scss in every website theme (without file extension ".scss")
 # website_theme_scss = "kalidasayur/public/scss/website"
@@ -42,8 +66,16 @@ app_license = "MIT"
 # ----------
 
 # application home page (will override Website Settings)
-# home_page = "login"
+home_page = "index"
 
+default_mail_footer = """
+	<span>
+		Sent via
+		<a class="text-muted" href="https://kalidasayur.org?source=via_email_footer" target="_blank">
+			Shri Kalidas Ayurveda Medical College and Hospital
+		</a>
+	</span>
+"""
 # website user home page (by Role)
 # role_home_page = {
 #	"Role": "home_page"

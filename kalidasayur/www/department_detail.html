@@ -1,0 +1,50 @@
+{% extends "templates/web.html" %}
+{% set full_width=1 %}
+{% set title = heading or "SKAMC Badami" %}
+
+{% block page_content %}
+<div id="preloader">
+    <div class="pulse"></div>
+</div><!-- Pulse Preloader -->
+
+<div class="sub_header bg_1">
+    <div id="intro_txt">
+        <h1>SKAMC <strong>Excellence</strong> in teaching</h1>
+        <p>{{ department.name }} Department</p>
+    </div>
+</div>
+<!--End sub_header -->
+
+<div id="position">
+    <div class="container">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="departments">Departments</a></li>
+            <li>{{ department.name }}</li>
+        </ul>
+    </div>
+</div><!-- Position -->
+
+<div class="container margin_60">
+    <div class="main_title">
+        <h2>{{ department.name }}</h2>
+    </div>
+
+    <div align='center'>
+        {% if department.image %}
+        <img src="{{ department.image }}" alt="{{ department.name }}" class="rounded">
+        {% endif %}
+    </div>
+    <br><br>
+    <div style="text-align:justify;">
+        {% if department.introduction %}
+        {{ department.introduction }}
+        {% endif %}
+        <br>
+        {% if department.treatments %}
+        {{ department.treatments }}
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
