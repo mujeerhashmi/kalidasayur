@@ -7,54 +7,44 @@
     <div class="pulse"></div>
 </div><!-- Pulse Preloader -->
 
-<div class="container_gray_bg">
-    <div class="container margin_60">
-        <div class="main_title">
-            <h2>Information for CCIM ...</h2>            
-        </div>
-        <div class="panel-group" id="accordion">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
-                            aria-expanded="true">Details of Director/Dean/Principal<i class="indicator pull-right icon_minus_alt2"></i></a>
-                    </h4>
-                </div>
-                <div id="collapseOne" class="panel-collapse collapse in" aria-expanded="true" style="">
-                    <div class="panel-body">
-                        
+<div class="container margin_60">
+
+    <div class="main_title">
+        <h2>Information for CCIM</h2>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="accordion" id="accordion">
+                {% if ccim_info %} {% for info in ccim_info %}
+                <div class="card">
+                    <div class="card-header" id="heading-{{loop.index}}">
+                        <a class="card-link" data-toggle="collapse" data-target="#collapse-{{loop.index}}"
+                            aria-expanded="true" aria-controls="collapse-{{loop.index}}" data-parent="#accordion">
+                            {{ info }}<i class="indicator icon_plus_alt2 pull-right"></i>
+                        </a>
+                    </div>
+
+                    <div id="collapse-{{loop.index}}" class="collapse" aria-labelledby="heading-{{loop.index}}">
+                        <div class="card-body">
+                            <table>
+                                <tbody>
+                                    {% for info_list in ccim_info[info] %}
+                                    <tr>
+                                        <td>
+                                            <a href="{{ info_list['info_document'] }}" target='_blank'>
+                                                {{info_list['name'] }}</a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                            </table>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion"
-                            href="#collapseTwo" aria-expanded="false">Parsnip lotus root celery?<i
-                                class="indicator pull-right icon_plus_alt2"></i></a>
-                    </h4>
-                </div>
-                <div id="collapseTwo" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
-                    <div class="panel-body">
-                        
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion"
-                            href="#collapseThree" aria-expanded="false">Beet greens peanut salad?<i
-                                class="indicator icon_plus_alt2 pull-right"></i></a>
-                    </h4>
-                </div>
-                <div id="collapseThree" class="panel-collapse collapse" aria-expanded="false">
-                    <div class="panel-body">
-                        
-                    </div>
-                </div>
+                {% endfor %} {% endif %}
             </div>
         </div>
     </div>
+
 </div>
 {% endblock %}

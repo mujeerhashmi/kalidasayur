@@ -106,7 +106,7 @@ $('.tooltip-1').tooltip({html:true});
 function toggleChevron(e) {
 	'use strict';
     $(e.target)
-        .prev('.panel-heading')
+        .prev('.card-header')
         .find("i.indicator")
         .toggleClass('icon_plus_alt2 icon_minus_alt2');
 }
