@@ -19,18 +19,18 @@ app_license = "MIT"
 # app_include_js = "/assets/kalidasayur/js/kalidasayur.js"
 
 # include js, css files in header of web template
-web_include_css = [
-	"assets/css/kalidas_theme.css",
+web_include_css = [	
 	# BASE CSS
 	"/assets/kalidasayur/css/main_font/main_font.css",
-	"/assets/kalidasayur/css/animate.min.css",	
-	"/assets/kalidasayur/css/style.css",
-	"/assets/kalidasayur/css/responsive.css",
+	"/assets/kalidasayur/css/animate.min.css",
 	"/assets/kalidasayur/css/elegant_font/elegant_font.min.css",
 	"/assets/kalidasayur/css/icon_font/pe-icon-7-stroke.min.css",
 	"/assets/kalidasayur/css/fontello/css/fontello.min.css",
 	"/assets/kalidasayur/css/edu_fonts/edu_fonts.min.css",
 	"/assets/kalidasayur/css/magnific-popup.css",
+	"/assets/css/kalidas_theme.css",	
+	"/assets/kalidasayur/css/style.css",	
+	"/assets/kalidasayur/css/responsive.css",
 
 	# YOUR CUSTOM CSS
 	"/assets/kalidasayur/css/custom.css"

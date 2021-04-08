@@ -4,7 +4,6 @@ $primary: #14b1ab;
 
 .navbar {
 	background-color: $primary;
-	height: 70px;
 	width: 100%;
 	z-index: 999999;	
 }
@@ -14,7 +13,7 @@ $primary: #14b1ab;
 }
 
 .navbar-brand img {
-	max-height: 40px;
+	max-height: 70px;
 }
 
 .navbar.scrolled {		
