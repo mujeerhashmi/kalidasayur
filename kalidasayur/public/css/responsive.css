@@ -52,6 +52,9 @@
 	margin-bottom:30px;
 	text-align:center;
 }
+.card-img, .card-img-top, .magnific-gallery img {
+	height: 20vw;
+}
 }
 
 /* Small Devices, Tablets */
@@ -152,6 +155,9 @@ footer{text-align:center;}
 .sub_header {
    height:270px;
 }
+.card-img, .card-img-top, .magnific-gallery img {
+	height: 25vw;
+}
 }
 
 /* Extra Small Devices, Phones */ 
@@ -202,6 +208,9 @@ footer{text-align:center;}
 }
 .bg_content div h3{
 	font-size:36px;
+}
+.card-img, .card-img-top, .magnific-gallery img {
+	height: 50vw;
 }
 }
 
