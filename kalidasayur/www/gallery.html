@@ -28,7 +28,7 @@
     <section class="grid">        
         <div class="row">
             {% if albums %} {% for gallery, cover_photo in albums.items() %}
-            <div class="col-md-3 col-sm-3">
+            <div class="col-md-4 col-sm-4">
                 <a href="/gallery_detail?name={{ gallery }}">
                     <div class="card mb-4 box-shadow">
                         <img class="card-img-top" src="{{ cover_photo }}" alt="">

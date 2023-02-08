@@ -49,3 +49,9 @@ body {
 .carousel-item blockquote img {
   margin-bottom: 20px;
 }
+
+.card-img, .card-img-top, .magnific-gallery img {
+  width: 100%;
+  object-fit: cover;
+  height: 15vw;
+}
