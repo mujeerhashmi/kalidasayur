@@ -56,3 +56,9 @@ $primary: #14b1ab;
 .page-header {
 	color: $primary;
 }
+
+.card-img, .card-img-top, .magnific-gallery img {
+	width: 100%;
+	object-fit: cover;
+	height: 15vw;
+}
