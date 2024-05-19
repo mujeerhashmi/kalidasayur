@@ -11,24 +11,6 @@
 {%- block script %}
 <!-- LayerSlider script files -->
 <script src="/assets/kalidasayur/layerslider/js/greensock.js"></script>
-<script src="/assets/kalidasayur/layerslider/js/layerslider.transitions.js"></script>
-<script src="/assets/kalidasayur/layerslider/js/layerslider.kreaturamedia.jquery.js"></script>
-<script type="text/javascript">
-    // Running the code when the document is ready
-    $(document).ready(function () {
-        'use strict';
-        // Calling LayerSlider on the target element with adding custom slider options
-        $('#layerslider').layerSlider({
-            autoStart: true,
-            responsive: true,
-            responsiveUnder: 1280,
-            layersContainer: 1170,
-            skinsPath: '/assets/kalidasayur/layerslider/skins/'
-            // Please make sure that you didn't forget to add a comma to the line endings
-            // except the last line!
-        });
-    });
-</script>
 <script src="/assets/kalidasayur/js/tabs.js"></script>
 <script>
     new CBPFWTabs(document.getElementById('tabs'));
@@ -41,28 +23,49 @@
 </div><!-- Pulse Preloader -->
 
 {% if carousel %} {% set slides = carousel['slideshow_items'] %}
-<div id="full-slider-wrapper">
-    <div id="layerslider" style="width:100%;height:650px;">
-        {% for slide in slides %}
-        <div class="ls-slide" data-ls="slidedelay: 3000; transition2d:5;">
-            <img src="{{ slide.image }}" class="ls-bg" alt="Slide background" style="opacity:0.9">
-            {% if slide.heading %}
-            <h3 class="ls-l slide_typo" style="top: 45%; left: 50%;"
-                data-ls="offsetxin:0;durationin:1000;delayin:1000;easingin:easeOutElastic;rotatexin:90;transformoriginin:50% bottom 0;offsetxout:0;rotatexout:90;transformoriginout:50% bottom 0;">
-                {{ slide.heading }}</h3>
-            {% endif %}
-            {% if slide.description %}
-            <p class="ls-l slide_typo_2" style="top:52%; left:50%;"
-                data-ls="durationin:1000;delayin:1000;easingin:easeOutElastic;">{{ slide.description }}</p>
-            {% endif %}
-            <p class="ls-l" style="top:62%; left:50%;" data-ls="durationin:1000;delayin:1300;easingin:easeOutElastic;">
-                <a href="tour.html" class="button_intro">Take a tour</a> <a href="about.html"
-                    class="button_intro outline">About us</a>
-            </p>
-        </div>
-        {% endfor %}
-    </div>
-</div><!-- End layerslider -->
+<div id="the-carousel" class="carousel slide" data-ride="carousel" data-interval=3000>
+	{% if slides | len > 1 %}
+	<!-- Indicators -->
+	<ol class="carousel-indicators">
+		{% for slide in slides %}
+		<li data-target="#the-carousel" data-slide-to="{{ loop.index }}"
+			{%- if loop.index==0 %}class="active"{% endif %}></li>
+		{% endfor %}
+	</ol>
+	{% endif %}
+
+	<!-- Wrapper for slides -->
+	<div class="carousel-inner">
+		{% for slide in slides %}
+		<div class="{% if slide.idx==1 %}active{% endif %} item carousel-item">
+			<img class="d-block w-100" loading="eager" src="{{ slide.image }}" style="opacity:0.9"/>
+			{% if slide.heading or slide.description %}
+			<div class="carousel-caption">
+				{% if slide.heading %}<h3 class="ls-l slide_typo" style="top: 45%; left: 50%;">{{ slide.heading }}</h3>{% endif %}
+				{% if slide.description %}<p class="ls-l slide_typo_2" style="top:52%; left:50%;">{{ slide.description }}</p>{% endif %}
+                <p class="ls-l" style="top:62%; left:50%;">
+                    <a href="tour.html" class="button_intro">Take a tour</a> 
+                    <a href="about.html" class="button_intro outline">About us</a>
+                </p>
+			</div>
+			{% endif %}
+		</div>
+		{% endfor %}
+	</div>
+
+	<!-- Controls -->
+	{% if slides | len > 1 %}
+	<a class="carousel-control-prev" href="#the-carousel" data-slide="prev" role="button">
+		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		<span class="sr-only">{{ _('Previous') }}</span>
+	</a>
+	<a class="carousel-control-next" href="#the-carousel" data-slide="next" role="button">
+		<span class="carousel-control-next-icon" aria-hidden="true"></span>
+		<span class="sr-only">{{ _('Next') }}</span>
+	</a>
+	{% endif %}
+</div>
+{% endif %}
 
 <div class="container_gray_bg" id="home_feat_1">
     <div class="container">
@@ -325,7 +328,5 @@
         </div>
     </div><!-- End row -->
 </div><!-- End bg_content -->
-
-{% endif %}
 
 {% endblock %}
